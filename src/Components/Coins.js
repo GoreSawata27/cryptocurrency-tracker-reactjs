@@ -7,7 +7,7 @@ export default function Coins() {
   const [fevorite, setFevorite] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [fav , setFav] = useState(true)
+  const [fav, setFav] = useState(true);
 
   const fetchCoins = async () => {
     try {
@@ -42,7 +42,7 @@ export default function Coins() {
     } else if (name === "Favorite") {
       const store = fevorite.sort();
       setCoins([...store]);
-      setFav(false)
+      setFav(false);
     }
   };
 
@@ -50,7 +50,8 @@ export default function Coins() {
     const store = coins.map((item) => {
       return {
         ...item,
-        coin, isFavorite:coin.id===item.id ? true : false
+        coin,
+        isFavorite: coin.id === item.id ? true : false,
       };
     });
 
@@ -71,7 +72,7 @@ export default function Coins() {
   const Mapping_coins = coins?.map((coin) => {
     return (
       <tr key={coin.id} className="coin-row">
-        <td className="hide-mobile" >{coin.rank}</td>
+        <td className="hide-mobile">{coin.rank}</td>
         <td className="coin-name">
           <div className="img-symbol">
             <img src={coin.icon} alt="img" />
@@ -79,21 +80,21 @@ export default function Coins() {
           </div>
         </td>
         <td>${coin.price.toFixed(0).toLocaleString()}</td>
-        <td className="hide-mobile">${coin.marketCap.toFixed(0).toLocaleString()}</td>
+        <td className="hide-mobile">
+          ${coin.marketCap.toFixed(0).toLocaleString()}
+        </td>
         <td className="hide-mobile">${coin.volume.toFixed(0)}</td>
-        <td className="hide-mobile" >${coin.availableSupply.toFixed(0)} </td>
+        <td className="hide-mobile">${coin.availableSupply.toFixed(0)} </td>
         <td>{coin.priceChange1h.toFixed(2)}%</td>
         <td>{coin.priceChange1d.toFixed(2)}%</td>
-        <td>{coin.priceChange1w.toFixed(2)}%</td>
+        <td className="hide-mobile">{coin.priceChange1w.toFixed(2)}%</td>
         <td className="hide-mobile">
-          <button 
+          <button
             className="Fav-button"
             onClick={() => handelFavorite(coin)}
             disabled={coin.isFavorite}
           >
-           {
-            fav ? 'Add':'Remove'
-           }
+            {fav ? "Add" : "Remove"}
           </button>
         </td>
       </tr>
@@ -108,21 +109,23 @@ export default function Coins() {
       <div className="navbar">
         <div className="logo">CryptroTracker</div>
         <div className="select">
-          <select  onChange={handelSelect}>
+          <select onChange={handelSelect}>
             <option>Sort by</option>
             <option value="Price">Price</option>
-            <option className="hide-mobile" value="MarketCap">MarketCap</option>
-            <option  value="%1h">%1h</option>
-            <option  value="%1d">%1d</option>
-            <option  value="%1d">%1w</option>
-            <option  value="Favorite">favourites</option>
+            <option className="hide-mobile" value="MarketCap">
+              MarketCap
+            </option>
+            <option value="%1h">%1h</option>
+            <option value="%1d">%1d</option>
+            <option className="hide-mobile" value="%1d">%1w</option>
+            <option value="Favorite">favourites</option>
           </select>
         </div>
       </div>
       <table>
         <thead>
           <tr>
-            <th className="hide-mobile" >Rank</th>
+            <th className="hide-mobile">Rank</th>
             <th>Name</th>
             <th>Price</th>
             <th className="hide-mobile">MarketCap</th>
@@ -130,7 +133,7 @@ export default function Coins() {
             <th className="hide-mobile">Supply</th>
             <th>% 1h</th>
             <th>% 1d</th>
-            <th>% 1w</th>
+            <th className="hide-mobile">% 1w</th>
             <th className="hide-mobile">favourite</th>
           </tr>
         </thead>

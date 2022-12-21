@@ -50,12 +50,12 @@ export default function Coins() {
     const store = coins.map((item) => {
       return {
         ...item,
-        coin,
+        coin, isFavorite:coin.id===item.id ? true : false
       };
     });
 
     setCoins(store);
-    const arr = [...fevorite];
+    const arr = [...new Set(fevorite)];
     arr.push(coin);
     setFevorite(arr);
   };
@@ -84,6 +84,7 @@ export default function Coins() {
         <td className="hide-mobile" >${coin.availableSupply.toFixed(0)} </td>
         <td>{coin.priceChange1h.toFixed(2)}%</td>
         <td>{coin.priceChange1d.toFixed(2)}%</td>
+        <td>{coin.priceChange1w.toFixed(2)}%</td>
         <td className="hide-mobile">
           <button 
             className="Fav-button"
@@ -113,7 +114,8 @@ export default function Coins() {
             <option className="hide-mobile" value="MarketCap">MarketCap</option>
             <option  value="%1h">%1h</option>
             <option  value="%1d">%1d</option>
-            <option  value="Favorite">Favorite</option>
+            <option  value="%1d">%1w</option>
+            <option  value="Favorite">favourites</option>
           </select>
         </div>
       </div>
@@ -127,8 +129,9 @@ export default function Coins() {
             <th className="hide-mobile">Volume</th>
             <th className="hide-mobile">Supply</th>
             <th>% 1h</th>
-            <th>% 24h</th>
-            <th className="hide-mobile">Favourite</th>
+            <th>% 1d</th>
+            <th>% 1w</th>
+            <th className="hide-mobile">favourite</th>
           </tr>
         </thead>
         <tbody>{loading ? <div> loading...</div> : <>{Mapping_coins}</>}</tbody>

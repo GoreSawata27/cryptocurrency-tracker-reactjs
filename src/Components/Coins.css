@@ -24,9 +24,9 @@ img {
   letter-spacing: 2px;
 }
 .img-symbol {
-	display: flex;
-	align-items: center;
-  }
+  display: flex;
+  align-items: center;
+}
 
 .coin-name {
   display: flex;
@@ -60,7 +60,8 @@ th {
   font-weight: bold;
 }
 
-td,th {
+td,
+th {
   padding: 10px;
   border: 1px solid #ccc;
   text-align: left;
@@ -88,26 +89,27 @@ td,th {
 
 /* Favorite button */
 .Fav-button {
-	border: none;
-	padding: 5px;
-	background-color: #9ecae7;
-	font-weight: bold;
+  border: none;
+  padding: 5px;
+  background-color: #9ecae7;
+  font-weight: bold;
 }
 
-.Fav-button:hover{
+.Fav-button:hover {
   transform: scale(1.1);
   color: red;
 }
 
-@media screen and (max-width: 416px){
-  .hide-mobile{
+@media screen and (max-width: 416px) {
+  .hide-mobile {
     display: none;
   }
-  .navbar{display: grid;
+  .navbar {
+    display: grid;
     grid-template-columns: 50% 50%;
     width: 100%;
     padding: 0;
-    margin: 0 ;
+    margin: 0;
   }
   .logo {
     margin: 0 50px;
@@ -120,13 +122,12 @@ td,th {
     width: 120px;
     margin: 0 40px;
   }
-  table{
+  table {
     width: 100%;
   }
-
 }
 @media screen and (min-width: 601px) {
-  .navbar{
+  .navbar {
     width: 100%;
   }
   .logo {
@@ -136,16 +137,12 @@ td,th {
     color: white;
     letter-spacing: 0;
   }
-  
- 
 }
 
 @media screen and (min-width: 821px) {
-.navbar{
-  width: 90%;
-}
-
-
+  .navbar {
+    width: 90%;
+  }
 }
 
 /* @media screen and (min-width: 1200px) {
